@@ -1,0 +1,77 @@
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://10.218.155.59:3111/ (Press CTRL+C to quit)
+INFO:app:Healthz request successfull
+DEBUG:app:DEBUG message
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:15:09] "GET /healthz HTTP/1.1" 200 -
+INFO:app:metrics #1
+INFO:app:<sqlite3.Row object at 0x00000197FDD58280>
+INFO:app:metrics #2
+ERROR:app:Exception on /metrics [GET]
+Traceback (most recent call last):
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\course_3_cloud_native_project\techtrends\app.py", line 62, in metrics
+    response=json.dumps({"db_connection_count": connection_count, "post_count": get_post_count()}),
+             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\__init__.py", line 131, in dumps
+    return _json.dumps(obj, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\__init__.py", line 50, in default
+    return super().default(o)
+           ~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type Row is not JSON serializable
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:15:23] "[35m[1mGET /metrics HTTP/1.1[0m" 500 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://10.218.155.59:3111/ (Press CTRL+C to quit)
+INFO:app:metrics #1
+INFO:app:6
+INFO:app:metrics #2
+INFO:app:Metrics request successfull
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:19:06] "GET /metrics HTTP/1.1" 200 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://10.218.155.59:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:37:18] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:37:18] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:app:"About Us" page is retrieved.
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:37:47] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:37:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:38:57] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:38:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:39:46] "[32mPOST /create HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:39:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:39:46] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:43:06] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:43:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:45:15] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:45:15] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:45:28] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:45:28] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:46:44] "[33mGET /11 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:46:44] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://10.218.155.59:3111/ (Press CTRL+C to quit)
+INFO:app:post-Aufruf
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:49:56] "[33mGET /11 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Mar/2025 10:49:56] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+  

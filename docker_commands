@@ -1,0 +1,40 @@
+## Docker commands used to build the application 
+docker build -t techtrends .
+
+## Docker commands used to run the application
+docker run -d -p 7111:3111 techtrends
+
+## Docker commands used to get the application logs
+docker logs 8460687cc42b13322c592324b37f4f1eac52e8cdb03b76306e7e801df91dee16
+
+## Logs from the container running the TechTrends application
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://172.17.0.4:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:39:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:39:54] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:39:54] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:12/03/2025, 10:40:00, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:40:00] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:40:00] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:12/03/2025, 10:40:17, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:40:17] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:40:17] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:40:26] "GET /metrics HTTP/1.1" 200 -
+INFO:app:12/03/2025, 10:51:54, Non-existing article (11) is accessed and a 404 page is returned.
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:51:54] "GET /11 HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:51:54] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:12/03/2025, 10:52:03, "About Us" page is retrieved.
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:03] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:03] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:06] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:06] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:12/03/2025, 10:52:21, Article "Mein neuer Eintrag 5" created.
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:21] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [12/Mar/2025 10:52:21] "GET /static/css/main.css HTTP/1.1" 304 -
