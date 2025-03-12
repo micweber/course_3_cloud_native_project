@@ -5,7 +5,7 @@ from flask import Flask, jsonify, json, render_template, request, url_for, redir
 from werkzeug.exceptions import abort
 from datetime import datetime
 
-# global connection counter
+# Global connection counter
 connection_count = 0
 
 # Function to get a database connection.
