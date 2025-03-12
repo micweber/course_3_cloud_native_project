@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/Michael/course_3_cloud_native_project","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
