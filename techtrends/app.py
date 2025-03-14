@@ -1,5 +1,6 @@
 import sqlite3
 import logging
+import sys
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -96,16 +97,16 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-      app.logger.info(str(datetime.now().strftime("%d/%m/%Y, %H:%M:%S, ")) + 'Non-existing article (' + str(post_id) + ') is accessed and a 404 page is returned.')
-      return render_template('404.html'), 404
+      app.logger.info('Non-existing article (' + str(post_id) + ') is accessed and a 404 page is returned.')
+      return render_template('404.html')
     else:
-      app.logger.info(str(datetime.now().strftime("%d/%m/%Y, %H:%M:%S, ")) + 'Article "' + str(post['title']) + '" retrieved!')
+      app.logger.info('Article "' + str(post['title']) + '" retrieved!')
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    app.logger.info(str(datetime.now().strftime("%d/%m/%Y, %H:%M:%S, ")) + '"About Us" page is retrieved.')
+    app.logger.info('"About Us" page is retrieved.')
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -124,7 +125,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            app.logger.info(str(datetime.now().strftime("%d/%m/%Y, %H:%M:%S, ")) + 'Article "' + str(title) + '" created.')
+            app.logger.info('Article "' + str(title) + '" created.')
 
             connection_count = connection_count - 1
 
@@ -136,5 +137,22 @@ def create():
 if __name__ == "__main__":
     ## stream logs to a file
     logging.basicConfig(level=logging.DEBUG)
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stdout_handler.setLevel(logging.INFO)
+
+    # Handler for STDERR (WARNING and higher)
+    stderr_handler = logging.StreamHandler(sys.stderr)
+    stderr_handler.setLevel(logging.WARNING)
+
+    # Format for Logs: "14/03/2025, 14:44:15, Message-Text"
+    formatter = logging.Formatter('%d/%m/%Y, %H:%M:%S, %(message)s')
+
+    # add Formatter to handler
+    stdout_handler.setFormatter(formatter)
+    stderr_handler.setFormatter(formatter)
+
+    # add Handler to Logger
+    app.logger.addHandler(stdout_handler)
+    app.logger.addHandler(stderr_handler)
 
     app.run(host='0.0.0.0', port='3111')
